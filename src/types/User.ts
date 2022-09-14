@@ -1,4 +1,5 @@
 export default interface IUserData {
     id?: any | null,
-    username: string
-  }
+    username: string,
+    imagePath : string
+}

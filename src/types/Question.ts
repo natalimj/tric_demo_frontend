@@ -1,6 +1,8 @@
+import IAnswerData from "./Answer";
+
 export default interface IQuestionData {
-    id?: any | null,
-    text: string,
-    firstAnswer: string,
-    secondAnswer: string
+    questionId?: any | null;
+    questionNumber : number;
+    questionText: string;
+    answers : IAnswerData[];
   }

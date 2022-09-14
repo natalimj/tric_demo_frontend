@@ -2,32 +2,34 @@ import http from "../http-common";
 import IQuestionData from "../types/Question";
 import IResultData from "../types/Result";
 
-  const startSession = () => {
-    return http.post("questionApi/start");
-  };
+const startSession = () => {
+  return getQuestionByNumber(1);
+};
 
-  const endSession = () => {
-    return http.post("api/end");
-  };
+const endSession = () => {
+  return http.post("adminApi/endSession");
+};
 
-  const showNextQuestion = (id :number) => {
-    return http.get<IQuestionData>(`questionApi/next/${id}`);
-  };
+const showResult = (questionId: any) => {
+  return http.get<IResultData>("questionApi/result", {
+    params: {
+      questionId: questionId
+    }
+  })
+};
 
-  const getQuestionById = (id :any) => {
-    return http.get<IQuestionData>(`questionApi/questions/${id}`);
-  };
+const getQuestionByNumber = (questionNumber: number) => {
+  return http.get<IQuestionData>("questionApi/question", {
+    params: {
+      questionNumber: questionNumber
+    }
+  })
+};
 
-  const showResult = (id :any) => {
-    return http.get<IResultData>(`questionApi/results/${id}`);
-  }; 
-
-
-  const AdminService = {
-    startSession,
-    endSession,
-    showNextQuestion,
-    getQuestionById,
-    showResult
-  };
-  export default AdminService;
+const AdminService = {
+  startSession,
+  endSession,
+  showResult,
+  getQuestionByNumber
+};
+export default AdminService;

@@ -6,7 +6,7 @@ const getAllUsers = () => {
     return http.get<Array<IUserData>>("api/users");
   };
   const createUser = (data: IUserData) => {
-    return http.post<IUserData>("api/users", data);
+    return http.post<IUserData>("api/user", data);
   };
 
   const saveVote = (data: IVoteData) => {
