@@ -1,5 +1,5 @@
 const Constants = {
-	SOCKET_URL: "http://localhost:8080/ws-message",
+	SOCKET_URL: "https://tric-project.azurewebsites.net/ws-message",
 };
 
 export default Constants;
